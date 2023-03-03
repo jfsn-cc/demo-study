@@ -29,7 +29,6 @@ public class SingleExample {
     private final static Hungry hungry = new Hungry();
     private Hungry(){
     }
-
     public Hungry getHungry() {
         return hungry;
     }
