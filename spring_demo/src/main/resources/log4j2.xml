@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" monitorInterval="60">
+
+    <Properties>
+        <!--
+                <Property name="logLocation">${sys:log_path}</Property>
+        -->
+        <Property name="logLocation">logs</Property>
+    </Properties>
+
+    <Appenders>
+        <RollingFile name="SystemFileAppender" fileName="${logLocation}/test_model.log"
+                     filePattern="${logLocation}/$${date:yyyy-MM}/test_model-%d{MM-dd-yyyy}-%i.log">
+            <PatternLayout>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss:SSS} [%p] [%t] %msg (%M@%F\:%L)%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="128"/>
+        </RollingFile>
+
+        <!--输出到控制台-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss:SSS} [%p] [%t] %msg (%M@%F\:%L)%n</pattern>
+            </PatternLayout>
+        </Console>
+
+    </Appenders>
+
+    <Loggers>
+        <Logger name="org.springframework" level="DEBUG" additivity="false">
+            <AppenderRef ref="SystemFileAppender"/>
+        </Logger>
+
+        <Logger name="org.apache.ibatis" level="INFO" additivity="false">
+            <AppenderRef ref="SystemFileAppender"/>
+        </Logger>
+
+        <Logger name="com.zaxxer.hikari" level="INFO" additivity="false">
+            <AppenderRef ref="SystemFileAppender"/>
+        </Logger>
+
+        <Logger name="io.lettuce" level="INFO" additivity="false">
+            <AppenderRef ref="SystemFileAppender"/>
+        </Logger>
+
+        <Logger name="org.apache.http" level="INFO" additivity="false">
+            <AppenderRef ref="SystemFileAppender"/>
+        </Logger>
+
+        <Logger name="org.neo4j.ogm.metadata" level="INFO" additivity="false">
+            <AppenderRef ref="SystemFileAppender"/>
+        </Logger>
+
+        <Root level="INFO">
+            <AppenderRef ref="SystemFileAppender"/>
+            <!--            <AppenderRef ref="Console"/>-->
+        </Root>
+
+    </Loggers>
+
+</Configuration>
