@@ -5,7 +5,7 @@ import classic.ConstantsArray;
 /**
  * @创建人 ly
  * @时间 03-03
- * @描述
+ * @描述 冒泡算法
  */
 public class BubbleSort {
     private static int[]t1 = {5,1,4,3,19,0,38};
@@ -17,9 +17,12 @@ public class BubbleSort {
         }
     }
     public static void bubbleSort1(int[] arr) {
+        //时间复杂都o(n)~o(n^2)
         for (int i = 0; i < arr.length-1; i++) {
+            // 每一整次比较选定极值
             for (int j = 0; j < arr.length-i-1; j++) {
                 if (arr[j] > arr[j+1]) {
+                    //O(1)空间复杂， 交换数据
                     int temp = arr[j];
                     arr[j] = arr[j+1];
                     arr[j+1] = temp;

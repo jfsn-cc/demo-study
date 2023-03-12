@@ -17,24 +17,20 @@ public class HeapSort {
     }
 
     /**
-     * 堆排序
-     */
-    public static void heapSort1() {
-
-    }
-
-    /**
+     * 数组当成一个完全二叉树的中序遍历
      * 构建堆 : 从最下层最右边子树递归，每一棵子树进行排序
+     * 便于获取topk数据，出栈
      * @param arr
      */
     public static void buildHeap(int[] arr) {
-
         int length = arr.length;
         // 完全二叉树的最小右子树，节点= arr.length/2
         for (int i = arr.length/2-1; i >= 0 ; i--) {
+            //将原始堆调整成符合条件的顺序堆
             changeHeap(arr, i, length);
         }
         for (int j = arr.length-1; j >= 0; j--) {
+            // 获取极值
             swap(arr, 0, j);
             changeHeap(arr, 0, j);
         }
@@ -43,11 +39,13 @@ public class HeapSort {
     /**
      * 递归调整树顺序 每个最小子树进行比较调整顺序
      * @param arr
-     * @param node
+     * @param node 树父节点位置
+     * @para 堆长度
      */
     public static void changeHeap(int[] arr, int node, int length) {
         //node的叶子节点
         int child = node*2;
+        // 递归中断
         if (node > length/2-1)
             return;
         int temp = arr[node];
@@ -55,6 +53,7 @@ public class HeapSort {
         if (child+2 < length && arr[child+2] > arr[child+1]) {
             child++;
         }
+        // 节点和叶子节点比较
         if (arr[child+1] > arr[node]) {
             arr[node] = arr[child+1];
             arr[child+1] = temp;

@@ -21,7 +21,7 @@ public class InsertSelectSort {
 
     /**
      * 选择排序
-     * 交换数据，移动次数少，
+     * 交换数据，移动次数少， 逐一比较所有数据，获取最大最小值进行数据交换，构建有序集合
      * @param arr
      */
     public static void selectSort(int[] arr) {
@@ -31,9 +31,11 @@ public class InsertSelectSort {
             for (int j = i+1; j < arr.length-1; j++) {
                 if (arr[i] > arr[j]) {
                     temp = arr[j];
+                    //更新需要交换的数据位置
                     flag = j;
                 }
             }
+
             if (temp != arr[i]) {
                 arr[flag] = arr[i];
                 arr[i] = temp;
@@ -44,6 +46,7 @@ public class InsertSelectSort {
     /**
      * 插入排序
      * 与冒泡交换次数一致，每次执行一次 有序度加一
+     * 将前序集合作为有序集合，后续数据以冒泡方式向前移动，交换次数
      *
      * @param arr
      */

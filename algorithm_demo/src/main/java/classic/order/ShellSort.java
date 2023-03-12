@@ -21,6 +21,7 @@ public class ShellSort {
     /**
      * 希尔排序是直接插入排序的进阶版本，
      * 可以先营造一个整体有序的列表，然后再进行插入排序
+     * 设置步长，然后逐步缩小，直至完全有序
      * @param arr
      */
     public static void shellSort1(int[] arr) {
