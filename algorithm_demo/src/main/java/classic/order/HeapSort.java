@@ -10,9 +10,9 @@ import java.util.Arrays;
  */
 
 public class HeapSort {
-    private static int[]arr = {5,1,4,3,19,0,38,56,343,567,23,44,33};
+    private static int[]arr = {5,1,4,3,19,0,38,56,343,567,23,44};
     public static void main(String []args){
-        buildHeap(arr);
+        heapSort1(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -62,6 +62,51 @@ public class HeapSort {
         }
     }
 
+    /**
+     * 03-15
+     *
+     * 堆排序练习
+     * @param arr
+     */
+    public static void heapSort1(int[] arr) {
+        int length = arr.length;
+        //构建大顶堆
+        for (int i = length/2-1; i >= 0 ; i--) {
+            changHeap1(arr, i, arr.length);
+        }
+        for (int i=arr.length-1; i >= 0; i--) {
+            swap(arr,    0, i);
+            //这里从length-1开始，因为一开始数组就交换了一次
+            changHeap1(arr, 0, i);
+        }
+
+    }
+
+    /**
+     *
+     * @param arr 数组
+     * @param node 节点位置
+     * @param length 数组长度
+     */
+    private static void changHeap1(int[] arr, int node, int length) {
+        if (node > length/2-1) {
+            return;
+        }
+        //节点右子节点
+        int child = 2*node+2;
+        //右节点存在并且大于左节点时才有效
+        if (child <= length-1 && arr[child] > arr[child-1]) {
+            child++;
+        }
+        //父节点进行比较
+        if (arr[node] < arr[child-1]) {
+            swap(arr, node, child-1);
+
+            changHeap1(arr, child-1, length);
+        }
+    }
+
+
 
     public static void sort(int []arr){
         //1.构建大顶堆
@@ -76,7 +121,6 @@ public class HeapSort {
         }
 
     }
-
     /**
      * 调整大顶堆（仅是调整过程，建立在大顶堆已构建的基础上）
      * @param arr

@@ -9,7 +9,7 @@ public class InsertSelectSort {
     private static int[]t1 = {5,1,4,3,19,0,38};
 
     public static void main(String[] args) {
-        insertSort(t1);
+        selectSort2(t1);
         printArr(t1);
     }
 
@@ -43,6 +43,25 @@ public class InsertSelectSort {
         }
     }
 
+    public static void selectSort2(int[] arr) {
+        int flag = 0;
+        for (int i = 0; i < arr.length; i++) {
+            int min = arr[i];
+            for (int j = i+1; j < arr.length; j++) {
+                if (arr[j] < min) {
+                    min = arr[j];
+                    flag = j;
+                }
+            }
+            if (min != arr[i]) {
+                arr[flag] = arr[i];
+                arr[i] = min;
+            }
+
+        }
+    }
+
+
     /**
      * 插入排序
      * 与冒泡交换次数一致，每次执行一次 有序度加一
@@ -63,4 +82,5 @@ public class InsertSelectSort {
             arr[j+1] = temp;
         }
     }
+
 }

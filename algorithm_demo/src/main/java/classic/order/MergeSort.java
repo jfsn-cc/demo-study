@@ -53,16 +53,6 @@ public class MergeSort {
                 result[i++] = arr[left];
             }
         }
-/*        if (left != middle+1) {
-            for (; left <= middle; left++) {
-                result[i++] = arr[left];
-            }
-        }
-        if (j != right+1) {
-            for (; j <= right; j++) {
-                result[i++] = arr[j++];
-            }
-        }*/
         for (; k <= right; k++) {
             arr[k] = result[k];
         }
