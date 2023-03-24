@@ -1,5 +1,7 @@
 package com.test;
 
+import io.netty.channel.ChannelId;
+
 /**
  * @创建人 ly
  * @时间 0217
@@ -27,5 +29,9 @@ class Father {
 class Child extends Father{
     public void say() {
         System.out.println("this is child");
+    }
+
+    public void child() {
+        System.out.println("no different");
     }
 }

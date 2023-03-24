@@ -20,7 +20,9 @@ import java.util.Map;
 import java.util.Stack;
 
 @Component
+/*
 @ConfigurationProperties(prefix = "token")
+*/
 public class JWTUtils {
     @Value("${jwt.secret}")
     private String secret;

@@ -14,6 +14,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
+import java.util.ArrayList;
 
 @Slf4j
 public class IOCTest {
@@ -25,7 +26,8 @@ public class IOCTest {
         HelloService helloService = new HelloServiceImpl();
         ProxyBean proxyBean = new ProxyBean();
         HelloService proxy = (HelloService) proxyBean.getProxyBean(helloService, new MyInterceptor());
-
+        ArrayList<Object> objects = new ArrayList<>();
+        objects.add(1);
         proxy.sayHello("测试代理");
     }
 
