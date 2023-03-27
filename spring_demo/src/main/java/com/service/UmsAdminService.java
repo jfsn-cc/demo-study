@@ -1,11 +1,8 @@
 package com.service;
 
 
-import com.mbg.model.UmsAdmin;
 import com.mbg.model.UmsPermission;
-import com.model.dto.UmsAdminParam;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.transaction.annotation.Transactional;
+import com.model.UmsAdmin;
 
 import java.util.List;
 

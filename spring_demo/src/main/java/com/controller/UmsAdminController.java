@@ -1,8 +1,8 @@
 package com.controller;
 
 import com.common.CommonResult;
-import com.mbg.model.UmsAdmin;
 import com.mbg.model.UmsPermission;
+import com.model.UmsAdmin;
 import com.model.dto.UmsAdminLoginParam;
 import com.service.UmsAdminService;
 import io.swagger.annotations.Api;

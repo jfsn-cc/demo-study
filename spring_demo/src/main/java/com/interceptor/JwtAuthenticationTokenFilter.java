@@ -1,3 +1,4 @@
+/*
 package com.interceptor;
 
 import com.util.JWTUtils;
@@ -31,7 +32,8 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
     @Value("${jwt.tokenHead}")
     private String tokenHead;
-    /**
+    */
+/**
      * Same contract as for {@code doFilter}, but guaranteed to be
      * just invoked once per request within a single request thread.
      * See {@link #shouldNotFilterAsyncDispatch()} for details.
@@ -41,7 +43,8 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
      * @param request
      * @param response
      * @param chain
-     */
+     *//*
+
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
@@ -63,4 +66,4 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         }
         chain.doFilter(request, response);
     }
-}
+}*/

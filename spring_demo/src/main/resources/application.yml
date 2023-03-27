@@ -3,10 +3,10 @@ server:
 #
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/mall?useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai
-    username: root
-    password: root
-    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://119.91.205.219:3306/mall?useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai
+    username: malluser
+    password: malluserly
+    driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
     jedis:
       pool:
@@ -31,10 +31,6 @@ redis:
       authCode: "portal:authCode:"
     expire:
       authCode: 1200000 # 验证码超期时间
-mybatis:
-  mapper-locations:
-    - classpath:mapper/*.xml
-    - classpath*:com/**/mapper/*.xml
 
 
 
@@ -61,12 +57,12 @@ mybatis:
 ### datasourc
 
 ### shiro
-#shiro:
-#  unauthorized-url: /admin/noauth
-#  filter-chain:
-#    anon-pre: /api/**, /console/auth/resources
-#    anon-post: /, /index.html, /static/**, /console/admin/**, /css/**, /fonts/**, /img/**, /js/**, /console/timeLineFulltext/**
-#
+shiro:
+  unauthorized-url: /admin/noauth
+  filter-chain:
+    anon-pre: /api/**, /console/auth/resources
+    anon-post: /, /index.html, /static/**, /console/admin/**, /css/**, /fonts/**, /img/**, /js/**, /console/timeLineFulltext/**
+
 #biz:
 #  es-api-domain: http://localhost:9013/api/v1
 #sfc:

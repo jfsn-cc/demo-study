@@ -1,7 +1,7 @@
 package com.security;
 
-import com.mbg.model.UmsAdmin;
 import com.mbg.model.UmsPermission;
+import com.model.UmsAdmin;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

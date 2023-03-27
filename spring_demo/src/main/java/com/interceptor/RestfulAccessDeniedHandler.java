@@ -1,3 +1,4 @@
+/*
 package com.interceptor;
 
 import cn.hutool.json.JSONUtil;
@@ -22,3 +23,4 @@ public class RestfulAccessDeniedHandler implements AccessDeniedHandler {
         httpServletResponse.getWriter().flush();
     }
 }
+*/
